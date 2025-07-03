@@ -4,7 +4,7 @@ function isMultipleOf(dividend: number, divisor: number): boolean {
     return dividend % divisor === 0;
 }
 
-interface RulesEnabled {
+export interface RulesEnabled {
     3: boolean;
     5: boolean;
     7: boolean;
@@ -14,7 +14,7 @@ interface RulesEnabled {
 }
 
 // This is our main function
-function fizzbuzz(number: number, rules: RulesEnabled): void {
+export function fizzbuzz(number: number, rules: RulesEnabled): string {
     // Variable to store the output for printing
     let words: string[] = [];
 
@@ -54,8 +54,10 @@ function fizzbuzz(number: number, rules: RulesEnabled): void {
     // If no words matched, print the number
     if (words.length === 0) {
         console.log(number);
+        return String(number);
     } else {
         console.log(words.join(''));
+        return words.join('');
     }
 }
 
@@ -99,4 +101,6 @@ rl.question('Enter the number you want to check with FizzBuzz! ', (numAnswer) =>
         fizzbuzz(number, rules);
         rl.close();
     });
+
+    rl.close();
 })
